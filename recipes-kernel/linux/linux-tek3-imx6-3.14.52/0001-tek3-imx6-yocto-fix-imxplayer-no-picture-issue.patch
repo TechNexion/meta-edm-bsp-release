@@ -1,0 +1,42 @@
+From 6d41f35ddc8e2859f3873502d02824f2b0b56b92 Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Wed, 2 Mar 2016 15:07:38 +0800
+Subject: [PATCH] tek3-imx6: yocto - fix imxplayer no picture issue
+
+---
+ arch/arm/boot/dts/imx6qdl-tek3.dtsi |   12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx6qdl-tek3.dtsi b/arch/arm/boot/dts/imx6qdl-tek3.dtsi
+index 7783869..e5900ea 100644
+--- a/arch/arm/boot/dts/imx6qdl-tek3.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-tek3.dtsi
+@@ -152,10 +152,9 @@
+ 
+ 	mxcfb1: fb@0 {
+ 		compatible = "fsl,mxc_sdc_fb";
+-		disp_dev = "hdmi";
+-		interface_pix_fmt = "RGB24";
+-		mode_str ="1920x1080M@60";
+-		default_bpp = <32>;
++		disp_dev = "ldb";
++		interface_pix_fmt = "RGB666";
++		default_bpp = <16>;
+ 		int_clk = <0>;
+ 		late_init = <0>;
+ 		status = "disabled";
+@@ -163,8 +162,9 @@
+ 
+ 	mxcfb2: fb@1 {
+ 		compatible = "fsl,mxc_sdc_fb";
+-		disp_dev = "ldb";
+-		interface_pix_fmt = "RGB666";
++		disp_dev = "hdmi";
++		interface_pix_fmt = "RGB24";
++		mode_str ="1920x1080M@60";
+ 		default_bpp = <24>;
+ 		int_clk = <0>;
+ 		late_init = <0>;
+-- 
+1.7.9.5
+
