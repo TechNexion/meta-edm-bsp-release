@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://Licenses/README;md5=c7383a594871c03da76b3707929d2919"
 PROVIDES += "u-boot"
 
 SRCBRANCH = "tn-imx-v2015.04_3.14.52_1.1.0_ga"
-SRCREV = "bdd2dad9db3db10e01dd7935246d5691375b2d26"
+SRCREV = "8479d7e2a81d2f0e22b73df59bf2241f64c6316f"
 SRC_URI = "git://github.com/TechNexion/u-boot-edm.git;branch=${SRCBRANCH} \
            file://0001-Yocto-load-u-boot.img-from-RAW-instead-of-1st-FAT.patch \
            file://uEnv_lvds7.txt \
@@ -30,4 +30,4 @@ deploy_uenv () {
 do_deploy[postfuncs] += "deploy_uenv"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-COMPATIBLE_MACHINE = "(edm-fairy-imx6|edm-toucan-imx6|picosom-dwarf-imx6|edm-goblin-imx6sx)"
+COMPATIBLE_MACHINE = "(edm-fairy-imx6|edm-toucan-imx6|picosom-dwarf-imx6|edm-goblin-imx6sx|tek3-imx6)"
