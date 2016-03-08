@@ -1,0 +1,33 @@
+From ec38255e4d264ce713b027a1373546aff8b49425 Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Tue, 8 Mar 2016 10:45:18 +0800
+Subject: [PATCH] Revert 'wpa-supplicant: Make SystemD D-Bus config
+ conditional'
+
+---
+ .../wpa-supplicant/wpa-supplicant.inc              |    5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/meta/recipes-connectivity/wpa-supplicant/wpa-supplicant.inc b/meta/recipes-connectivity/wpa-supplicant/wpa-supplicant.inc
+index f95e91c..6f0de3c 100644
+--- a/meta/recipes-connectivity/wpa-supplicant/wpa-supplicant.inc
++++ b/meta/recipes-connectivity/wpa-supplicant/wpa-supplicant.inc
+@@ -86,13 +86,12 @@ do_install () {
+ 	cd ${D}${sysconfdir}/network/ && \
+ 	ln -sf ../if-pre-up.d/wpa-supplicant if-post-down.d/wpa-supplicant
+ 
++	install -d ${D}/${sysconfdir}/dbus-1/system.d
++	install -m 644 ${S}/wpa_supplicant/dbus/dbus-wpa_supplicant.conf ${D}/${sysconfdir}/dbus-1/system.d
+ 	install -d ${D}/${datadir}/dbus-1/system-services
+ 	install -m 644 ${S}/wpa_supplicant/dbus/*.service ${D}/${datadir}/dbus-1/system-services
+ 
+ 	if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
+-		install -d ${D}/${sysconfdir}/dbus-1/system.d
+-		install -m 644 ${S}/wpa_supplicant/dbus/dbus-wpa_supplicant.conf ${D}/${sysconfdir}/dbus-1/system.d
+-
+ 		install -d ${D}/${systemd_unitdir}/system
+ 		install -m 644 ${S}/wpa_supplicant/systemd/*.service ${D}/${systemd_unitdir}/system
+ 	fi
+-- 
+1.7.9.5
+

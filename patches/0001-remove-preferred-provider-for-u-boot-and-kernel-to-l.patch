@@ -1,0 +1,29 @@
+From 91277407218b3b2b11f77586fb0013182cbba277 Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Tue, 8 Mar 2016 09:56:50 +0800
+Subject: [PATCH] remove preferred provider for u-boot and kernel to let it
+ can be specified in machine.conf
+
+---
+ imx/meta-sdk/conf/distro/include/fsl-imx-base.inc |    5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc b/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc
+index 285d6c7..7a46b9a 100644
+--- a/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc
++++ b/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc
+@@ -11,11 +11,6 @@ DISTRO_FEATURES_append_mx7 = " bluez5"
+ 
+ # Preferred Providers
+ PREFERRED_PROVIDER_u-boot_mx5 = "u-boot-fslc"
+-PREFERRED_PROVIDER_u-boot_mx6 = "u-boot-imx"
+-PREFERRED_PROVIDER_u-boot_mx7 = "u-boot-imx"
+-
+-PREFERRED_PROVIDER_virtual/kernel_mx6 = "linux-imx"
+-PREFERRED_PROVIDER_virtual/kernel_mx7 = "linux-imx"
+ 
+ PREFERRED_PROVIDER_virtual/libgal-x11_mx6 = "imx-gpu-viv"
+ PREFERRED_PROVIDER_virtual/libopenvg_mx6q = "imx-gpu-viv"
+-- 
+1.7.9.5
+

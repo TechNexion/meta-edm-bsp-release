@@ -1,0 +1,39 @@
+From 57e2075b52062dc95e366a5f42a471bfbbdede66 Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Mon, 7 Mar 2016 17:55:29 +0800
+Subject: [PATCH] Fix append bug on mesa-demos for multi-platform
+
+---
+ .../recipes-graphics/mesa/mesa-demos_%.bbappend    |   10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/imx/meta-bsp/recipes-graphics/mesa/mesa-demos_%.bbappend b/imx/meta-bsp/recipes-graphics/mesa/mesa-demos_%.bbappend
+index e317420..11696ed 100644
+--- a/imx/meta-bsp/recipes-graphics/mesa/mesa-demos_%.bbappend
++++ b/imx/meta-bsp/recipes-graphics/mesa/mesa-demos_%.bbappend
+@@ -3,20 +3,14 @@ FILESEXTRAPATHS_prepend_mx6 := "${THISDIR}/${PN}:"
+ MESA-DEMO-PATCH = "file://0001-Additional-eglSwapBuffer-calling-makes-wrong-throttl.patch \
+                    file://0001-Add-OpenVG-demos-to-support-wayland.patch"
+ 
+-SRC_URI_append_mx6q  = " ${MESA-DEMO-PATCH}"
+-SRC_URI_append_mx6dl = " ${MESA-DEMO-PATCH}"
+-SRC_URI_append_mx6sx = " ${MESA-DEMO-PATCH}"
+-SRC_URI_append_mx6sl = " ${MESA-DEMO-PATCH}"
++SRC_URI_append_mx6  = " ${MESA-DEMO-PATCH}"
+ 
+ DEPENDS = "mesa"
+ 
+ REMOVE_GLU = "${@base_contains('DISTRO_FEATURES', 'wayland', \
+                        base_contains('DISTRO_FEATURES', 'x11','glu x11', 'glu x11', d), '', d)}"
+ 
+-PACKAGECONFIG_remove_mx6q = "${REMOVE_GLU}"
+-PACKAGECONFIG_remove_mx6dl = "${REMOVE_GLU}"
+-PACKAGECONFIG_remove_mx6sx = "${REMOVE_GLU}"
+-PACKAGECONFIG_remove_mx6sl = "${REMOVE_GLU}"
++PACKAGECONFIG_remove_mx6 = "${REMOVE_GLU}"
+ 
+ PACKAGECONFIG[vg] = "--enable-vg,--disable-vg,virtual/libopenvg"
+ 
+-- 
+1.7.9.5
+

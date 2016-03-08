@@ -1,0 +1,28 @@
+From 2a769201e780fd633ea6dbe738ae576b02aae6bd Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Mon, 7 Mar 2016 17:50:51 +0800
+Subject: [PATCH] Fix append bug on gstreamer1.0-plugins-bad for
+ multi-platform
+
+---
+ .../gstreamer/gstreamer1.0-plugins-bad_%.bbappend  |    4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/imx/meta-bsp/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad_%.bbappend b/imx/meta-bsp/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad_%.bbappend
+index d9fb93c..251f24b 100644
+--- a/imx/meta-bsp/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad_%.bbappend
++++ b/imx/meta-bsp/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad_%.bbappend
+@@ -59,9 +59,7 @@ GPU_PATCHES = " file://1.4.5-Use-viv-direct-texture-to-bind-buffer.patch \
+                 file://0017-MMFMWK-6778-Support-more-format-in-direct-viv.patch \
+ "
+ 
+-SRC_URI_append_mx6q  = "${GPU_PATCHES}"
+-SRC_URI_append_mx6dl = "${GPU_PATCHES}"
+-SRC_URI_append_mx6sx = "${GPU_PATCHES}"
++SRC_URI_append_mx6  = "${GPU_PATCHES}"
+ 
+ # include fragment shaders
+ FILES_${PN}-opengl += "/usr/share/*.fs"
+-- 
+1.7.9.5
+
