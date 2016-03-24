@@ -1,4 +1,4 @@
-# TechNexion EDM1-CF-IMX6 with Fairy baseboard
+# TechNexion EDM1-CF-IMX6SX with Goblin baseboard
 
 LICENSE = "GPLv2"
 
@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/TechNexion/linux.git;branch=${SRCBRANCH} \
            file://defconfig \
 "
 
-SRCREV = "1e4ad0e96e3c9b3750a966b1ffa939b3d18887d8"
+SRCREV = "2dc6111e8ad463fbe9980d2988b74f09a5054327"
 LOCALVERSION = "-1.1.1-edm_goblin_imx6sx"
 
 
