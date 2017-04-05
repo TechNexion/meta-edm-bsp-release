@@ -58,7 +58,7 @@ patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-graphics/mesa/
 patch -Np1 -r - sources/meta-fsl-arm/recipes-multimedia/gstreamer/gst1.0-fsl-plugin_4.0.7.bb < sources/meta-edm-bsp-release/patches/0005-meta-fsl-arm-gst1.0-fsl-plugin-libfslvpuwrap-is-alre.patch
 patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend < sources/meta-edm-bsp-release/patches/0006-imx-meta-sdk-recipes-qt5-qt5-qtbase-add-linuxfb-supp.patch
 patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc < sources/meta-edm-bsp-release/patches/0007-fsl-imx-base.inc-remove-hard-coded-IMAGE_FSTYPES.patch
-patch -Np1 -r - sources/meta-fsl-arm/conf/machine/include/imx-base.inc < sources/meta-edm-bsp-release/patches/0008-imx-base.inc-add-default-IMAGE_FSTYPES-for-imx6-seri.patch
+patch -Np1 -r - sources/meta-fsl-arm/conf/machine/include/imx-base.inc < sources/meta-edm-bsp-release/patches/0008-imx-base.inc-add-default-IMAGE_FSTYPES-for-imx6-and-.patch
 
 ## Upgrde chromium from 40 to 48
 patch -Np1 -r - sources/meta-browser/recipes-browser/chromium/chromium_48.0.2548.0.bb < sources/meta-edm-bsp-release/patches/chromium48_0001-Remove-chromium_48-from-blacklist-to-compile-it-in-Y.patch
