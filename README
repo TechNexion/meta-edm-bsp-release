@@ -12,6 +12,22 @@ Fetch Technexion Yocto source code:
 $: repo init -u https://github.com/TechNexion/edm-yocto-bsp.git -b jethro_4.1.15-1.1.0_GA
 $: repo sync -j8
 
+Prepare wifi/BT firmware
+-------------------------
+Under sources/meta-edm-bsp-release/recipes-bsp, there are two directories: "firmware-legacy" and "firmware-bcmdhd" which contain wifi/BT firmware files.
+
+1. firmware-legacy:
+This directory contains wifi/BT firmwares for BCM4330, the firmware is from Linux-Wireless and added by default.
+
+2. firmware-bcmdhd:
+This directory is supposed to contain the wifi/BT firmwares of Ampak AP6335(BCM4339) and AP6212(BCM43438).
+Because of the license restriction, please contact TechNexion FAE or Sales to get licensed firmware files.
+After getting the firmware binary:
+(1) Put all the firmware files into sources/meta-edm-bsp-release/recipes-bsp/firmware-bcmdhd/files.
+(2) Activate the deployment of Ampak AP6335(BCM4339) and AP6212(BCM43438) firmware files:
+$ cp sources/meta-edm-bsp-release/recipes-bsp/firmware-bcmdhd/files/firmware-bcmdhd_1.0.1.bak sources/meta-edm-bsp-release/recipes-bsp/firmware-bcmdhd/firmware-bcmdhd_1.0.1.bb
+
+
 Run i.MX Technexion Yocto Setup
 ---------------------------------
 $: MACHINE=< machine name> DISPLAY=<DISPLAY_TYPE> BASEBOARD=<BASEBOARD_TYPE> source edm-setup-release.sh -b <build directory> -e <backend fb, wayland, x11>
