@@ -1,1 +1,6 @@
-Please contact TechNexion FAE or Sales to get licensed wifi firmware
+These firmware files are for Ampak AP6335(BCM4339) and AP6212(BCM43438) wifi/BT chip.
+Please contact TechNexion FAE or Sales to get licensed wifi firmware files:
+Then, follow the steps:
+1. Put all the firmware files into sources/meta-edm-bsp-release/recipes-bsp/firmware-bcmdhd/files.
+2. Activate the deployment of Ampak AP6335(BCM4339) and AP6212(BCM43438) firmware files:
+   cp sources/meta-edm-bsp-release/recipes-bsp/firmware-bcmdhd/files/firmware-bcmdhd_1.0.1.bak sources/meta-edm-bsp-release/recipes-bsp/firmware-bcmdhd/firmware-bcmdhd_1.0.1.bb
