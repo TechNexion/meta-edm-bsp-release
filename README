@@ -100,8 +100,9 @@ $ bitbake fsl-image-qt5
 
 For TEP5-IMX6:
 
-TEP5-IMX6 BOX PC, QT5 with X11 image for 10 inch LVDS output:
+TEP5-IMX6 BOX PC, QT5 with X11 image for 10 inch or 15 inch LVDS panel output:
 $ DISPLAY=lvds10 MACHINE=tek-imx6 source edm-setup-release.sh -b build-x11-tek -e x11
+$ DISPLAY=lvds15 MACHINE=tek-imx6 source edm-setup-release.sh -b build-x11-tek -e x11
 $ bitbake fsl-image-qt5
 ===============================================================================================================
 For EDM1-CF-IMX6SX :
