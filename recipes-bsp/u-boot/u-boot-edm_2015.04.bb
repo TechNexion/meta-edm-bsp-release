@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://Licenses/README;md5=c7383a594871c03da76b3707929d2919"
 PROVIDES += "u-boot"
 
 SRCBRANCH = "tn-imx_v2015.04_4.1.15_1.0.0_ga"
-SRCREV = "c0a196430e9dbb6899af9eb0f52aa7c7c9f02d80"
+SRCREV = "b0eda23752da60a6fd97462360032ffa9b8497f8"
 SRC_URI = "git://github.com/TechNexion/u-boot-edm.git;branch=${SRCBRANCH} \
            "
 
