@@ -299,6 +299,19 @@ if [ "$CPU_TYPE" == 'imx7' ]; then
 	fi
 fi
 
+if [ "$CPU_TYPE" == 'imx6ul' ]; then
+	if [ "$MACHINE" == "pico-imx6ul-emmc" ] ; then
+		if [ "$BASEBOARD" != "dwarf" ] && [ "$BASEBOARD" != "hobbit" ] && [ "$BASEBOARD" != "nymph" ] && [ "$BASEBOARD" != "pi" ]; then
+			echo "BASEBOARD is wrong. Please assign BASEBOARD as one of dwarf, hobbit, nymphm pi"
+			echo "setting hobbit as default baseboard"
+			BASEBOARD="hobbit"
+		fi
+		cp $UENV_PATH/uEnv_empty.txt $UENV_PATH/uEnv.txt
+		sed -i "1s/^/baseboard=$BASEBOARD\n/" $UENV_PATH/uEnv.txt
+		echo BASEBOARD=$BASEBOARD
+	fi
+fi
+
 # i.mx6ul can only output to TTL LCD panel and can't change display settings by uEnv.txt
 if [ "$CPU_TYPE" == 'imx6ul' ] ; then
 		DISPLAY="lcd"
