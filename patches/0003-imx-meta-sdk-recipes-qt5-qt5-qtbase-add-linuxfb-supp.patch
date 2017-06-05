@@ -1,0 +1,42 @@
+From b6a38d969f5c219d44dbc65f8607c61ba59498a5 Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Fri, 2 Jun 2017 13:43:33 +0800
+Subject: [PATCH] imx/meta-sdk/recipes-qt5/qt5/qtbase: add linuxfb support for
+ imx6ul and imx7d when DISTRO_FEATURES isn't x11
+
+---
+ imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend b/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend
+index a5a9cd5..d2cac4e 100644
+--- a/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend
++++ b/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend
+@@ -18,18 +18,20 @@ PACKAGECONFIG_GL_mx6q = "gles2"
+ PACKAGECONFIG_GL_mx6dl = "gles2"
+ PACKAGECONFIG_GL_mx6sx = "gles2"
+ PACKAGECONFIG_GL_mx6sl = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' gl', '', d)}"
+-PACKAGECONFIG_GL_mx6ul = "gles2"
++PACKAGECONFIG_GL_mx6ul = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' gl', '', d)}"
+ PACKAGECONFIG_GL_mx6sll = "gles2"
+-PACKAGECONFIG_GL_mx7 = "gles2"
++PACKAGECONFIG_GL_mx7 = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' gl', '', d)}"
+ PACKAGECONFIG_GL_mx8 = "gles2"
+ QT_CONFIG_FLAGS_append_mx6q = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
+ QT_CONFIG_FLAGS_append_mx6dl = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
+ QT_CONFIG_FLAGS_append_mx6sx = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
+ QT_CONFIG_FLAGS_append_mx6sl = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', \
+                                                  ' -no-opengl -linuxfb -no-eglfs -no-widgets', d)}"
+-QT_CONFIG_FLAGS_append_mx6ul = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
++QT_CONFIG_FLAGS_append_mx6ul = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', \
++                                                 ' -no-opengl -linuxfb -no-eglfs -no-widgets', d)}"
+ QT_CONFIG_FLAGS_append_mx6sll = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
+-QT_CONFIG_FLAGS_append_mx7 = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
++QT_CONFIG_FLAGS_append_mx7 = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', \
++                                                 ' -no-opengl -linuxfb -no-eglfs -no-widgets', d)}"
+ QT_CONFIG_FLAGS_append_mx8 = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' -no-eglfs', ' -eglfs', d)}"
+ 
+ do_configure_prepend() {
+-- 
+1.9.1
+

@@ -52,12 +52,11 @@ clean_up()
 
 # Patch recipes to fix bugs
 patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/conf/distro/include/fsl-imx-preferred-env.inc < sources/meta-edm-bsp-release/patches/0001-remove-preferred-provider-for-u-boot-and-kernel-to-l.patch
-patch -Np1 -r - sources/meta-fsl-arm/classes/image_types_fsl.bbclass < sources/meta-edm-bsp-release/patches/0002-image_types_fsl.bbclass-modify-to-put-u-boot.img-int.patch
-patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-graphics/mesa/mesa-demos_%.bbappend < sources/meta-edm-bsp-release/patches/0004-mesa-demos-add-support-for-multi-platform.patch
-patch -Np1 -r - sources/meta-fsl-arm/recipes-multimedia/gstreamer/gst1.0-fsl-plugin_4.0.7.bb < sources/meta-edm-bsp-release/patches/0005-meta-fsl-arm-gst1.0-fsl-plugin-libfslvpuwrap-is-alre.patch
-patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend < sources/meta-edm-bsp-release/patches/0006-imx-meta-sdk-recipes-qt5-qt5-qtbase-add-linuxfb-supp.patch
-patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc < sources/meta-edm-bsp-release/patches/0007-fsl-imx-base.inc-remove-hard-coded-IMAGE_FSTYPES.patch
-patch -Np1 -r - sources/meta-fsl-arm/conf/machine/include/imx-base.inc < sources/meta-edm-bsp-release/patches/0008-imx-base.inc-add-default-IMAGE_FSTYPES-for-imx6-and-.patch
+patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-graphics/mesa/mesa-demos_%.bbappend < sources/meta-edm-bsp-release/patches/0002-mesa-demos-add-support-for-multi-platform.patch
+patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/recipes-qt5/qt5/qtbase_%.bbappend < sources/meta-edm-bsp-release/patches/0003-imx-meta-sdk-recipes-qt5-qt5-qtbase-add-linuxfb-supp.patch
+patch -Np1 -r - sources/meta-fsl-bsp-release/imx/meta-sdk/conf/distro/include/fsl-imx-base.inc < sources/meta-edm-bsp-release/patches/0004-fsl-imx-base.inc-remove-hard-coded-IMAGE_FSTYPES.patch
+patch -Np1 -r - sources/meta-fsl-arm/classes/image_types_fsl.bbclass < sources/meta-edm-bsp-release/patches/0005-image_types_fsl.bbclass-modify-to-put-u-boot.img-int.patch
+patch -Np1 -r - sources/meta-fsl-arm/conf/machine/include/imx-base.inc < sources/meta-edm-bsp-release/patches/0006-imx-base.inc-add-default-IMAGE_FSTYPES-for-imx6-imx6.patch
 
 # get command line options
 OLD_OPTIND=$OPTIND

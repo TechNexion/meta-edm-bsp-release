@@ -1,0 +1,27 @@
+From 8d35713f73867dc3ebd19766c9641e2311fb80d8 Mon Sep 17 00:00:00 2001
+From: Richard Hu <richard.hu@technexion.com>
+Date: Fri, 2 Jun 2017 13:53:38 +0800
+Subject: [PATCH] imx-base.inc: add default IMAGE_FSTYPES for imx6, imx6ul and
+ imx7
+
+---
+ conf/machine/include/imx-base.inc | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/conf/machine/include/imx-base.inc b/conf/machine/include/imx-base.inc
+index d6069a7..719eb53 100644
+--- a/conf/machine/include/imx-base.inc
++++ b/conf/machine/include/imx-base.inc
+@@ -157,6 +157,9 @@ PREFERRED_PROVIDER_virtual/kernel ??= "${IMX_DEFAULT_KERNEL}"
+ 
+ SOC_DEFAULT_IMAGE_FSTYPES = "sdcard.gz"
+ SOC_DEFAULT_IMAGE_FSTYPES_mxs = "uboot.mxsboot-sdcard sdcard.gz"
++SOC_DEFAULT_IMAGE_FSTYPES_mx6 ?= "tar.bz2 ext4 sdcard"
++SOC_DEFAULT_IMAGE_FSTYPES_mx6ul ?= "tar.bz2 ext4 sdcard"
++SOC_DEFAULT_IMAGE_FSTYPES_mx7 ?= "tar.bz2 ext4 sdcard"
+ 
+ SDCARD_ROOTFS ?= "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext4"
+ IMAGE_FSTYPES ?= "${SOC_DEFAULT_IMAGE_FSTYPES}"
+-- 
+1.9.1
+
