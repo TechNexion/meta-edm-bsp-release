@@ -643,7 +643,7 @@ dump(uchar *out, int len)
 	fprintf(stderr, "\n");
 }
 
-void
+int
 read_event(int fd, uchar *buffer)
 {
 	int i = 0;
@@ -696,6 +696,7 @@ read_event(int fd, uchar *buffer)
                 else
 		dump(buffer, count);
 	}
+	return count;
 }
 
 void
@@ -734,10 +735,14 @@ proc_reset()
 void
 proc_read_local_name()
 {
-    int i;
+    int i, count;
     char *p_name;
     hci_send_cmd(hci_read_local_name, sizeof(hci_read_local_name));
-    read_event(uart_fd, buffer);
+
+	count = read_event(uart_fd, buffer);
+	if (count < 100)
+		read_event(uart_fd, buffer);
+
     p_name = &buffer[1+HCI_EVT_CMD_CMPL_LOCAL_NAME_STRING];
     for (i=0; (i < LOCAL_NAME_BUFFER_LEN)||(*(p_name+i) != 0); i++)
         *(p_name+i) = toupper(*(p_name+i));
@@ -766,6 +771,8 @@ proc_open_patchram()
     fprintf(stderr, "FW path = %s\n", fw_path);
     if ((hcdfile_fd = open(fw_path, O_RDONLY)) == -1) {
         fprintf(stderr, "file %s could not be opened, error %d\n", fw_path , errno);
+    } else {
+		return;
     }
     p = local_name;
     fprintf(stderr, "Retry lower case FW name\n");
