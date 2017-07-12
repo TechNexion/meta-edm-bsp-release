@@ -1,7 +1,7 @@
-Technexion 4.1.15-1.1.1 Yocto Project BSP
+TechNexion Yocto 2.1 Krogoth BSP
 ================================================
 
-This BSP is a Technexion release providing support NXP i.mx series processors
+This BSP is a TechNexion release providing support NXP i.mx series processors
 
 
 Quick Start Guide
@@ -9,7 +9,7 @@ Quick Start Guide
 See the Freescale Yocto Project User's Guide for instructions on installing repo.
 
 Fetch Technexion Yocto source code:
-$: repo init -u https://github.com/TechNexion/edm-yocto-bsp.git -b jethro_4.1.15-1.1.0_GA
+$: repo init -u https://github.com/TechNexion/edm-yocto-bsp.git -b krogoth_4.1.y_GA
 $: repo sync -j8
 
 Prepare wifi/BT firmware
@@ -57,7 +57,7 @@ FAIRY baseboard, QT5 with X11 image for 7 inch/5 inch TTL-LCD panel:
 $ DISPLAY=lcd MACHINE=edm1-cf-imx6 BASEBOARD=fairy source edm-setup-release.sh -b build-x11-fairy -e x11
 $ bitbake fsl-image-qt5
 
-Toucan0700, QT5 with X11 image for 7 inch LVDS panel and disabled debug console:
+TC-07x0, QT5 with X11 image for 7 inch LVDS panel and disabled debug console:
 $ DISPLAY=lvds7 MACHINE=edm1-cf-imx6-no-console BASEBOARD=tc0700 source edm-setup-release.sh -b build-x11-toucan -e x11
 $ bitbake fsl-image-qt5
 ===============================================================================================================
@@ -155,6 +155,26 @@ $ bitbake fsl-image-gui
 
 PI baseboard, QT5 with FB image for 5 inch TTL-LCD panel:
 $ MACHINE=pico-imx7 BASEBOARD=pi source edm-setup-release.sh -b build-fb-pico-imx7 -e fb
+$ bitbake fsl-image-qt5
+===============================================================================================================
+For TEK3-IMX6UL:
+
+X11 image for 1024x768 VGA monitor:
+$ MACHINE=tek3-imx6ul source edm-setup-release.sh -b build-x11-tek3-imx6ul -e x11
+$ bitbake fsl-image-gui
+
+QT5 with FB image for 1024x768 VGA monitor:
+$ MACHINE=tek3-imx6ul source edm-setup-release.sh -b build-fb-tek3-imx6ul -e fb
+$ bitbake fsl-image-qt5
+===============================================================================================================
+For TEP1-IMX6UL (TEP-0500/TEP-0700):
+
+X11 image for 7 inch/5 inch TTL-LCD panel:
+$ MACHINE=tep1-imx6ul source edm-setup-release.sh -b build-x11-tep1-imx6ul -e x11
+$ bitbake fsl-image-gui
+
+QT5 with FB image for 7 inch/5 inch TTL-LCD panel:
+$ MACHINE=tep1-imx6ul source edm-setup-release.sh -b build-fb-tep1-imx6ul -e fb
 $ bitbake fsl-image-qt5
 ===============================================================================================================
 
