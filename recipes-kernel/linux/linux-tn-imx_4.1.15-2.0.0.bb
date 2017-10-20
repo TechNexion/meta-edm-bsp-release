@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/TechNexion/linux.git;branch=${SRCBRANCH} \
            file://defconfig \
 "
 
-SRCREV = "5e15010315b6c2a6834bdf74d23abc2ec2a4e0e5"
+SRCREV = "74288c91e8175574dd76a6e21c4df4adf53cc87e"
 LOCALVERSION = "-2.0.0-technexion"
 
 COMPATIBLE_MACHINE = "(mx6|mx6ul|mx7)"
