@@ -10,6 +10,7 @@ SRC_URI += " \
     file://fw_bcm4330_apsta_bg.bin \
     file://brcmfmac4330-sdio.txt \
     file://bcm4330.hcd \
+    file://bcm4330b1.hcd \
 "
 
 S = "${WORKDIR}"
@@ -22,6 +23,7 @@ do_install() {
     install -m 0755 fw_bcm4330_apsta_bg.bin ${D}/lib/firmware/brcm
     install -m 0755 brcmfmac4330-sdio.txt ${D}/lib/firmware/brcm
     install -m 0755 bcm4330.hcd ${D}/lib/firmware/brcm
+    install -m 0755 bcm4330b1.hcd ${D}/lib/firmware/brcm
 }
 
 FILES_${PN}-dbg += "/lib/firmware/.debug"
