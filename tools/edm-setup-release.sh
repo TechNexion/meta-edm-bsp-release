@@ -256,21 +256,11 @@ if [ "$CPU_TYPE" == 'imx6' ]; then
 
 	# Set default baseboard type for 'edm1-cf-imx6' and 'pico-imx6'
 	if [ "$MACHINE" == "edm1-cf-imx6" ] || [ "$MACHINE" == "edm1-cf-imx6-no-console" ] ; then
-		if [ "$BASEBOARD" != "fairy" ] && [ "$BASEBOARD" != "tc0700" ] ; then
-			echo "BASEBOARD is wrong. Please assign BASEBOARD as one of fairy, tc0700"
-			echo "setting fairy as default baseboard"
-			BASEBOARD="fairy"
-		fi
 		sed -i "1s/^/baseboard=$BASEBOARD\n/" $UENV_PATH/uEnv.txt
 		echo BASEBOARD=$BASEBOARD
 	fi
 
 	if [ "$MACHINE" == "pico-imx6" ] ; then
-		if [ "$BASEBOARD" != "dwarf" ] && [ "$BASEBOARD" != "hobbit" ] && [ "$BASEBOARD" != "nymph" ] ; then
-			echo "BASEBOARD is wrong. Please assign BASEBOARD as one of dwarf, hobbit, nymph"
-			echo "setting dwarf as default baseboard"
-			BASEBOARD="dwarf"
-		fi
 		sed -i "1s/^/baseboard=$BASEBOARD\n/" $UENV_PATH/uEnv.txt
 		echo BASEBOARD=$BASEBOARD
 	fi
@@ -278,11 +268,6 @@ fi
 
 if [ "$CPU_TYPE" == 'imx7' ]; then
 	if [ "$MACHINE" == "pico-imx7" ] ; then
-		if [ "$BASEBOARD" != "dwarf" ] && [ "$BASEBOARD" != "hobbit" ] && [ "$BASEBOARD" != "nymph" ] && [ "$BASEBOARD" != "pi" ]; then
-			echo "BASEBOARD is wrong. Please assign BASEBOARD as one of dwarf, hobbit, nymphm pi"
-			echo "setting hobbit as default baseboard"
-			BASEBOARD="hobbit"
-		fi
 		cp $UENV_PATH/uEnv_empty.txt $UENV_PATH/uEnv.txt
 		sed -i "1s/^/baseboard=$BASEBOARD\n/" $UENV_PATH/uEnv.txt
 		echo BASEBOARD=$BASEBOARD
@@ -291,11 +276,6 @@ fi
 
 if [ "$CPU_TYPE" == 'imx6ul' ]; then
 	if [ "$MACHINE" == "pico-imx6ul-emmc" ] ; then
-		if [ "$BASEBOARD" != "dwarf" ] && [ "$BASEBOARD" != "hobbit" ] && [ "$BASEBOARD" != "nymph" ] && [ "$BASEBOARD" != "pi" ]; then
-			echo "BASEBOARD is wrong. Please assign BASEBOARD as one of dwarf, hobbit, nymphm pi"
-			echo "setting hobbit as default baseboard"
-			BASEBOARD="hobbit"
-		fi
 		cp $UENV_PATH/uEnv_empty.txt $UENV_PATH/uEnv.txt
 		sed -i "1s/^/baseboard=$BASEBOARD\n/" $UENV_PATH/uEnv.txt
 		echo BASEBOARD=$BASEBOARD
