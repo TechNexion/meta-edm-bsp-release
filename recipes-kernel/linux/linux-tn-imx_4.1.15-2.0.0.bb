@@ -7,9 +7,11 @@ require recipes-kernel/linux/linux-dtb.inc
 
 DEPENDS += "lzop-native bc-native"
 
+TNLINUX_GITHUB_MIRROR ?= "git://github.com/TechNexion/linux.git"
+
 SRCBRANCH = "tn-imx_4.1.15_2.0.0_ga"
 
-SRC_URI = "git://github.com/TechNexion/linux.git;branch=${SRCBRANCH} \
+SRC_URI = "${TNLINUX_GITHUB_MIRROR};branch=${SRCBRANCH} \
            file://defconfig \
 "
 
