@@ -15,7 +15,7 @@ SRC_URI = "${TNLINUX_GITHUB_MIRROR};branch=${SRCBRANCH} \
            file://defconfig \
 "
 
-SRCREV = "8d9fc894cc51cdf0d8921449b66d912b6f5eecc0"
+SRCREV = "08c363404a749da53ee04c43428a863847056dd7"
 LOCALVERSION = "-2.0.0-technexion"
 
 COMPATIBLE_MACHINE = "(mx6|mx6ul|mx7)"
