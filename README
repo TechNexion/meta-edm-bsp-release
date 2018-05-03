@@ -23,7 +23,7 @@ $: repo sync -j8
 If errors on repo init, remove the .repo directory and try repo init again.
 
 Run i.MX Linux Yocto Project Setup:
-$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./tn-setup-release.sh -b bld-<backend>
+$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./edm-setup-release.sh -b bld-<backend>
 
 where
  <machine> defaults to imx6qsabresd
@@ -54,12 +54,12 @@ Here are some examples:
 
 Building XWayland image on WAND-PI-8M
 ------------
-  DISTRO=fsl-imx-xwayland MACHINE=wand-pi-8m source fsl-setup-release.sh –b build-xwayland
+  DISTRO=fsl-imx-xwayland MACHINE=wand-pi-8m source edm-setup-release.sh –b build-xwayland
   bitbake fsl-image-qt5-validation-imx
   
 Building Wayland image on WAND-PI-8M
 ------------
-  DISTRO=fsl-imx-wayland MACHINE=wand-pi-8m source fsl-setup-release.sh -b build-wayland
+  DISTRO=fsl-imx-wayland MACHINE=wand-pi-8m source edm-setup-release.sh -b build-wayland
   bitbake fsl-image-qt5-validation-imx
 
 To run the QT5 examples use the following parameters:
