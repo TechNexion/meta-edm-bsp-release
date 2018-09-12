@@ -12,13 +12,13 @@ require recipes-kernel/linux/linux-dtb.inc
 
 DEPENDS += "lzop-native bc-native"
 
-WANDBOARD_GITHUB_MIRROR ?= "git://github.com/TechNexion/linux.git"
+TN_GITHUB_MIRROR ?= "git://github.com/TechNexion/linux.git"
 
 SRCBRANCH = "tn-imx_4.9.51_imx8m_ga-test"
 
-SRC_URI = "${WANDBOARD_GITHUB_MIRROR};branch=${SRCBRANCH}"
+SRC_URI = "${TN_GITHUB_MIRROR};branch=${SRCBRANCH}"
 
-SRCREV = "d08132ba9541373fb327284b5c4e2fd900d5e355"
+SRCREV = "a329f6f921d22bd25abe93844a9810578342fb7b"
 LOCALVERSION = "-${SRCBRANCH}"
 
 
