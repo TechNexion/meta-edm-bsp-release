@@ -4,7 +4,7 @@ i.MX Linux Yocto Project BSP 4.9.51_8mq_ga Release
 The following boards were supported in this release.
 
    * SOC: NXP i.MX 8MQuad 
-	 Machine: wand-pi-8m
+	 Machine: TechNexion PICO-IMX8M
 
  * i.MX Device Tree configurations for each machine
     Each machine files lists the associated device trees for that machine.
@@ -23,15 +23,11 @@ $: repo sync -j8
 If errors on repo init, remove the .repo directory and try repo init again.
 
 Run i.MX Linux Yocto Project Setup:
-$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./edm-setup-release.sh -b bld-<backend>
+$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./edm-setup-release.sh -b <build folder>
 
 where
- <machine> defaults to imx6qsabresd
- <backend> Graphics backend type
-            x11         X11 (this is the default if DISTRO is unspecified)
-            wayland     Wayland
-            xwayland    Wayland with XWayland support
-            fb          Framebuffer
+ <machine> specifies the target platform (it corresponds to the .conf file under /conf/machine)
+ <build folder> specifies the build folder name
 
 After this your system will be configured to start a Yocto Project build.
 
@@ -52,14 +48,14 @@ Note: DirectFB is no longer supported in i.MX graphic bilds.
 Here are some examples:
 (The example uses the imx6qsabresd MACHINE but substitute this with whatever you are using)
 
-Building XWayland image on WAND-PI-8M
+Building XWayland image on PICO-IMX8M
 ------------
-  DISTRO=fsl-imx-xwayland MACHINE=wand-pi-8m source edm-setup-release.sh –b build-xwayland
+  DISTRO=fsl-imx-xwayland MACHINE=pico-imx8m source edm-setup-release.sh –b build-xwayland
   bitbake fsl-image-qt5-validation-imx
   
-Building Wayland image on WAND-PI-8M
+Building Wayland image on PICO-IMX8M
 ------------
-  DISTRO=fsl-imx-wayland MACHINE=wand-pi-8m source edm-setup-release.sh -b build-wayland
+  DISTRO=fsl-imx-wayland MACHINE=pico-imx8m source edm-setup-release.sh -b build-wayland
   bitbake fsl-image-qt5-validation-imx
 
 To run the QT5 examples use the following parameters:
