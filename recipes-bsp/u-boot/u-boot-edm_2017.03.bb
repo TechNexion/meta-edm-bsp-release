@@ -14,7 +14,7 @@ LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a
 UBOOT_SRC ?= "git://github.com/TechNexion/u-boot-edm.git"
 SRCBRANCH = "tn-imx_v2017.03_4.9.51_imx8m_ga-test"
 SRC_URI = "${UBOOT_SRC};branch=${SRCBRANCH}"
-SRCREV = "872dcd7c9fd15f44574df4d939de8e325adef2a1"
+SRCREV = "249f055677d4e1d11d2715beb9ef5f53440d1f08"
 
 S = "${WORKDIR}/git"
 
