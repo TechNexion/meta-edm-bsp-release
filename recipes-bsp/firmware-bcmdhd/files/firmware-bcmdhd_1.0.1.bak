@@ -14,6 +14,10 @@ SRC_URI += " \
     file://fw_bcm43438a0_apsta.bin \
     file://nvram_ap6212.txt \
     file://bcm43438a0.hcd \
+    file://fw_bcm43438a1.bin \
+    file://fw_bcm43438a1_apsta.bin \
+    file://nvram_ap6212a.txt \
+    file://bcm43438a1.hcd \
 "
 
 S = "${WORKDIR}"
@@ -27,11 +31,17 @@ do_install() {
     install -m 0755 nvram_ap6335.txt ${D}/lib/firmware/brcm
     install -m 0755 bcm4339a0.hcd ${D}/lib/firmware/brcm
 
-    #Install AP6212 wifi and bluetooth firmware
+    #Install AP6212 rev.A0 wifi and bluetooth firmware
     install -m 0755 fw_bcm43438a0.bin ${D}/lib/firmware/brcm
     install -m 0755 fw_bcm43438a0_apsta.bin ${D}/lib/firmware/brcm
     install -m 0755 nvram_ap6212.txt ${D}/lib/firmware/brcm
     install -m 0755 bcm43438a0.hcd ${D}/lib/firmware/brcm
+
+    #Install AP6212 rev.A1 wifi and bluetooth firmware
+    install -m 0755 fw_bcm43438a1.bin ${D}/lib/firmware/brcm
+    install -m 0755 fw_bcm43438a1_apsta.bin ${D}/lib/firmware/brcm
+    install -m 0755 nvram_ap6212a.txt ${D}/lib/firmware/brcm
+    install -m 0755 bcm43438a1.hcd ${D}/lib/firmware/brcm
 }
 
 FILES_${PN}-dbg += "/lib/firmware/.debug"
